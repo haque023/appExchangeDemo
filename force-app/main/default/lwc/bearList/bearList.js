@@ -19,4 +19,15 @@ export default class BearList extends LightningElement {
 	get hasResults() {
 		return (this.bears.data.length > 0);
 	}
+	handleBearView(event) {
+		const bearId = event.detail;
+		this[NavigationMixin.Navigate]({
+			type: 'standard__recordPage',
+			attributes: {
+				recordId: bearId,
+				objectApiName: 'Bear__c',
+				actionName: 'view',
+			},
+		});
+	}
 }
